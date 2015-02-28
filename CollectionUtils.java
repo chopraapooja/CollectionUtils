@@ -5,7 +5,7 @@ interface ListMapper <RT,E>{
 	public RT mapper(E ele);
 }
 
-
+	
 
 class CollectionUtils {
 	static <E> List<E> map(List<E> list, ListMapper m) {
@@ -13,16 +13,16 @@ class CollectionUtils {
 		for (E ele : list) {
 			result.add(m.mapper(ele));
 		}
-		return list;
+		return result;
 	}
-	public static void main(String[] args) {
-		List<Integer> numbers = new ArrayList<Integer>();
-		numbers.add(1);
-		numbers.add(2);
-		numbers.add(3);
-		ListMapper mapper = new NumberMapper();
+	// public static void main(String[] args) {
+	// 	List<Integer> numbers = new ArrayList<Integer>();
+	// 	numbers.add(1);
+	// 	numbers.add(2);
+	// 	numbers.add(3);
+	// 	ListMapper mapper = new NumberMapper();
 
-		System.out.println(numbers.toString());	
-		System.out.println(CollectionUtils.map(numbers, mapper));
-	}
+	// 	System.out.println(numbers.toString());	
+	// 	System.out.println(CollectionUtils.map(numbers, mapper));
+	// }
 }
