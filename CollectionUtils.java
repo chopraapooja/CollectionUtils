@@ -14,6 +14,10 @@ class NumberMapper implements ListMapper<Integer, Integer>{
 class CollectionUtils {
 	
 	static <E> List<E> map(List<E> list, ListMapper m) {
+		List result = new ArrayList();
+		for (E ele : list) {
+			result.add(m.mapper(ele));
+		}
 		return list;
 	}
 	// static List<RT> mapper(List<E> list, ListMapper mapper) {
@@ -23,6 +27,8 @@ class CollectionUtils {
 	public static void main(String[] args) {
 		List<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(1);
+		numbers.add(2);
+		numbers.add(3);
 		ListMapper mapper = new NumberMapper();
 
 		System.out.println(numbers.toString());	
