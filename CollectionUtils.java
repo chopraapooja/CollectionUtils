@@ -5,14 +5,9 @@ interface ListMapper <RT,E>{
 	public RT mapper(E ele);
 }
 
-class NumberMapper implements ListMapper<Integer, Integer>{
-	public Integer mapper(Integer num) {
-		return num;
-	}
-}
+
 
 class CollectionUtils {
-	
 	static <E> List<E> map(List<E> list, ListMapper m) {
 		List result = new ArrayList();
 		for (E ele : list) {
@@ -20,10 +15,6 @@ class CollectionUtils {
 		}
 		return list;
 	}
-	// static List<RT> mapper(List<E> list, ListMapper mapper) {
-	// 	return null;
-	// }  
-	
 	public static void main(String[] args) {
 		List<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(1);
