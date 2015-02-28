@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Arrays;
 import java.util.ArrayList;
 
 class IdentityMapper implements ListMapper<Integer, Integer>{
@@ -24,9 +25,8 @@ public class CollectionUtilsTest {
 		numbers.add(2);
 		numbers.add(3);
 		ListMapper mapper = new IdentityMapper();
-		String expected = numbers.toString();
-		String actual = CollectionUtils.map(numbers, mapper).toString();
-		assertEquals(expected, actual);
+		List<Integer> result = CollectionUtils.map(numbers, mapper);
+		assertEquals(numbers, result);
 	}
 
 	@Test 
@@ -36,8 +36,8 @@ public class CollectionUtilsTest {
 		names.add("poo");
 		names.add("puju");
 		ListMapper mapper = new Name2LengthMapper();
-		String expected = "[5, 3, 4]";
-		String actual = CollectionUtils.map(names, mapper).toString();
-		assertEquals(expected, actual);	
+		List<Integer> expected = Arrays.asList(5, 3, 4);
+		List<Integer> result = CollectionUtils.map(names, mapper);
+		assertEquals(expected, result);	
 	}
 }

@@ -8,7 +8,7 @@ interface ListMapper <RT,E>{
 	
 
 class CollectionUtils {
-	static <E> List<E> map(List<E> list, ListMapper m) {
+	static <E,RT> List<RT> map(List<E> list, ListMapper m) {
 		List result = new ArrayList();
 		for (E ele : list) {
 			result.add(m.mapper(ele));
